@@ -1,0 +1,79 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!doctype html>
+<html>
+<head>
+    <title>Sequential Movies</title>
+    <script type="text/javascript">
+      /*  // listener function changes src
+        function myNewSrc() {
+            var myAudio = document.getElementsByTagName('audio')[0];
+            myAudio.src = "song.php?path=/Users/williampoynter/Music/iTunes/iTunes Media/Music/Pink Floyd/The Wall-Disc 1/02 The Thin Ice.mp3";
+            myAudio.load();
+            myAudio.play();
+        }
+        // add a listener function to the ended event
+        function myAddListener(){
+            var myAudio = document.getElementsByTagName('audio')[0];
+            myAudio.src = "song.php?path=/Users/williampoynter/Music/iTunes/iTunes Media/Music/Pink Floyd/The Wall-Disc 1/01 In The Flesh.mp3";
+            myAudio.load();
+            myAudio.play();
+            myAudio.addEventListener('ended', myNewSrc, false);
+        }
+        */
+    </script>
+    
+    <script type="text/javascript">
+function songDblClick(str)
+{
+if (str.length==0)
+  { 
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+       alert(xmlhttp.responseText);
+    document.getElementById("livesearch").src=xmlhttp.responseText;
+    document.getElementById("livesearch").load();
+    document.getElementById("livesearch").play();
+    }
+  }
+xmlhttp.open("GET","will.php?SID="+str,true);
+xmlhttp.send();
+}
+</script>
+</head>
+<body onload="myAddListener()">
+    <!--<audio controls="controls">
+    </audio>-->
+    <form>
+        <input type="text" onkeyup="songDblClick(this.value)" />
+    </form>
+    <audio id="livesearch" controls="controls"></audio>
+    
+    <div class ="search" id ="search_music" >
+    <p style= "color: white;" > <b>Tracks </b> </p>
+    <div class="rounded-corners" style='background: white; width:90%; margin: 0 auto; height: 70%'>
+    <div style="width: 90%; max-height: 100%; overflow: auto;  font-size: medium; margin: 0 auto;">
+    <center><table style="width: 100%; background: white; height: 90%;">
+            <tr><th>Title</th><th>Length</th></tr>
+                <?php echo $_SESSION['screen']['queue']['songs']; ?>
+    </table></center>
+    </div>
+    </div>
+    </div>
+    
+</body>
+</html>

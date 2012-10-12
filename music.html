@@ -1,0 +1,82 @@
+<html>
+
+<head>
+<link rel = "stylesheet" type = "text/css" href = "style.css" />
+<title> Funky Jingles </title>
+<link rel="icon" type="image/gif" href="images\music.jpg" />
+
+</head>
+
+<body>
+<a href ="index.php">
+<img src ="images\alien.jpg" style="height: 100px; width: 100px;"
+title = "Home"
+id = "home"
+class = "home"
+>
+  
+</a>
+
+<div class = "list" id="artists">  <!--opening rightcolumn-->
+<h2 style = "color:white; text-align: center; " ><b> Artists</b></h2>
+<div class="rounded-corners" style='background: white; width:90%; margin: 0 auto; height: 70%; margin-top: -15px;'>
+<div style="width: 90%; max-height: 100%; overflow: auto;  font-size: x-large; margin: 0 auto;">
+    <center><table id="artists-list" style="width: 100%; background: white; height: 95%;">
+                <?php echo $_SESSION['screen']['list']['artists']; ?>
+    </table></center> 
+</div>
+</div>
+</div> 
+<div class ="list" id="album">
+<h2 style ="color:white; text-align: center;"><b> Album </b></h2>
+<div class="rounded-corners" style='background: white; width:90%; margin: 0 auto; height: 70%; margin-top: -15px;'>
+<div style="width: 90%; max-height: 100%; overflow: auto;  font-size: medium; margin: 0 auto;">
+    <center><table id="albums-list" style="width: 100%; background: white; height: 95%;">
+                <?php echo $_SESSION['screen']['list']['albums']; ?>
+    </table></center>
+</div>
+</div>
+</div>
+
+
+
+
+<div id = "wrapperqueue">  <!--opening leftcolumn-->
+<h2 style="color: white; text-align: center;"> <b>Queue</b></h2>
+<div class="rounded-corners" style='background: white; width:90%; margin: 0 auto; height: 70%'>
+<div style="width: 90%; max-height: 100%; overflow: auto;  font-size: medium; margin: 0 auto;">
+    <center><table id="track-queue" style="width: 100%; background: white; height: 90%;">
+    </table></center>
+</div>
+</div>
+</div> <!--closing leftcolumn -->
+
+<div class = "header" id = "header" > 
+<!-- <marquee behavior="scroll" direction="left"><h1> Welcome to Will Player, enjoy listening!</h1></marquee>       -->
+<center> <a href="javascript://" onClick='makeRate(96)' style='color: black;' id="rate-96" >96k</a> | <a href="javascript://" onClick='makeRate(192)' style='color: black;' id="rate-192" >192k</a> | <a href="javascript://" onClick='makeRate(320)' style='color: black;' id="rate-320" >320k</a> <audio controls='controls' id="livesearch" ></audio> <a href="javascript://" onClick='nextTrack()' style='color: black;' >Next</a></center>
+</div>
+
+<div class ="search" id ="search_music" >
+<p style= "color: white;" > <b>Tracks </b> </p>
+<div class="rounded-corners" style='background: white; width:90%; margin: 0 auto; height: 70%'>
+<div style="width: 90%; max-height: 100%; overflow: auto;  font-size: medium; margin: 0 auto;">
+    <center><table id="song-list" style="width: 100%; background: white; height: 90%;">
+                <?php echo $_SESSION['screen']['list']['songs']; ?>
+    </table></center>
+</div>
+</div>
+</div>
+
+<!--<div class ="search" id ="options">
+<text > I would like: </text>
+<select>
+	<option> Select </option>
+	<option> Hug</option>
+
+	<option> Squeeze </option>
+	<option> Cake </option>
+	<option> Pat on the Head </option>
+</select> -->
+
+</body>
+</html>
