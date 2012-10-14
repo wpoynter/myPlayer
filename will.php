@@ -108,7 +108,7 @@ $user->setPassword("GeF0rc34");
 
 $user->upload();
 
-echo "done";*/
+echo "done";
 
 function cmp($a, $b) {
     
@@ -127,7 +127,7 @@ if ($handle = opendir($dir)) {
         echo "<a href='?'>Up</a><br>";
     echo "<b>Entries:</b><br>\n";
 
-    /* This is the correct way to loop over the directory. */
+    /* This is the correct way to loop over the directory. 
     while (false !== ($entry = readdir($handle))) {
         if (substr($entry, 0, 1) != ".") {
                 if (!is_dir("$dir/$entry")) $items[] = "<a href='tv.php?path=" . urlencode($_GET['a'] . "/" .$entry) . "'>" . $entry . "</a><br>\n";
@@ -144,5 +144,8 @@ if ($handle = opendir($dir)) {
     foreach ($items as $value)
         if (!in_array($value, $directories)) echo $value;
 }
-
+*/
+include("lib/tau.inc");
+$cxn = mysqli_connect($host, $dbuser,$dbpasswd,$dbname);
+var_dump($cxn);
 ?>
